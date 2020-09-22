@@ -3,7 +3,6 @@ from os import close
 from shutil import move
 
 file ='C:\\tmp\\file21.txt' #исходный файл
-file_out ='C:\\tmp\\file22.txt' # файл для записи
 
 file_temp, temp = mkstemp() # создать temp-файл
 lines = [] # уникальные строки из file
@@ -13,4 +12,4 @@ with open(temp, 'w') as tf, open(file) as f:
                  lines.append(line) # сохранить line в lines
                  tf.write(line) # записать line в temp-файл
 close(file_temp) # закрыть temp-файл
-move(temp, file_out) # переместить/переименовать temp-файл в file
+move(temp, file) # переместить/переименовать temp-файл в file
