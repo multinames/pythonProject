@@ -1,5 +1,16 @@
+from tempfile import mkstemp
+from os import close
+from shutil import move
 
-f ='c:\\tmp\\file21.txt'
 
-read_lines = set(open(f,'r').readlines())
-write_to_file = open(f,'w').writelines(set(read_lines))
+def write_lines(file='C:\\tmp\\file21.txt'):
+    ft, temp = mkstemp()  # создать temp-файл
+    lines = []  # "уникальные" строки из file
+
+    with open(temp, 'w') as t, open(file) as f:
+        for line in f:  # читать file построчно
+            if line not in lines:  # для line, отсутствующих в lines
+                lines.append(line)  # сохранить line в lines
+                t.write(line)  # записать line в temp-файл
+    close(ft)  # закрыть temp-файл
+    move(temp, 'C:\\tmp\\file22.txt')  # переместить/переименовать temp-файл в file
