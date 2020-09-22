@@ -1,10 +1,12 @@
 f = open("c:\\tmp\\file1.txt",'r')
-f2 = open ("c:\\tmp\\file2.txt",'w')
-l_file = set()
+f2 = open ("c:\\tmp\\file2.txt",'w+')
 
 for line in f:
-    if line not in l_file:
-        f2.write(line)
-    l_file.add(line)
+
+    for line2 in f2:
+        print(line)
+        if line not in line2:
+
+                f2.write(line)
 f.close
 f2.close

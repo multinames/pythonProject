@@ -1,15 +1,15 @@
-f1 = open('C:\\tmp\\file22.txt','w+')
-flag = False
-with open('C:\\tmp\\file21.txt') as f2:
-    for line in f2:
-        for tmp in f1:
-            if tmp == line:
+with open('C:\\tmp\\file21.txt') as fin: #открываем исходный файл
+    fout = open('C:\\tmp\\file22.txt', 'w+') # открываем новый файл
+    flag = False # устанавливаем флаг
+    for line in fin: #читаем исходный файл
+        for tmp in fout: #читаем новый файд
+            if tmp == line: #сравниваем строки
                 flag = True
                 print('Совпадение найдено!')
                 break
         if flag == False:
-            f1.write(line)
+            fout.write(line)
         elif flag == True:
             flag = False
-        f1.seek(0)
-    f1.close()
+        fout.seek(0) # переход на начало нового файла во втором цикле
+    fout.close()

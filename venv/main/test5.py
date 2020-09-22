@@ -13,3 +13,4 @@ with open(temp, 'w') as tf, open(file) as f:
                  tf.write(line) # записать line в temp-файл
 close(file_temp) # закрыть temp-файл
 move(temp, file) # переместить/переименовать temp-файл в file
+
